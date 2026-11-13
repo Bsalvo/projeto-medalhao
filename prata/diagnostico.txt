@@ -1,0 +1,179 @@
+                           DIAGNÓSTICO TÉCNICO DA BASE DE DADOS                           
+                           Arquitetura Medalhão - Camada Prata                            
+
+==========================================================================================
+1. IDENTIFICAÇÃO DA FONTE
+==========================================================================================
+Código do tema:     B
+Nome do tema:       Desempenho escolar
+URL utilizada:      https://raw.githubusercontent.com/gramener/datasets/main/student-mat.csv
+Dados brutos em:    bronze/dados_brutos.csv
+
+==========================================================================================
+2. VISÃO GERAL DA BASE
+==========================================================================================
+Registros (linhas):                395
+Variáveis (colunas):                33
+  - numéricas:                      16
+  - não numéricas:                  17
+
+Nota: a separação entre numéricas e não numéricas segue o tipo de dado identificado
+pelo Pandas. Ela não indica, sozinha, o significado estatístico da variável.
+
+==========================================================================================
+3. ESTRUTURA DAS VARIÁVEIS
+==========================================================================================
+COLUNA      TIPO          AUSENTES   AUSENTES %
+-----------------------------------------------
+school      str                  0        0.00%
+sex         str                  0        0.00%
+age         int64                0        0.00%
+address     str                  0        0.00%
+famsize     str                  0        0.00%
+Pstatus     str                  0        0.00%
+Medu        int64                0        0.00%
+Fedu        int64                0        0.00%
+Mjob        str                  0        0.00%
+Fjob        str                  0        0.00%
+reason      str                  0        0.00%
+guardian    str                  0        0.00%
+traveltime  int64                0        0.00%
+studytime   int64                0        0.00%
+failures    int64                0        0.00%
+schoolsup   str                  0        0.00%
+famsup      str                  0        0.00%
+paid        str                  0        0.00%
+activities  str                  0        0.00%
+nursery     str                  0        0.00%
+higher      str                  0        0.00%
+internet    str                  0        0.00%
+romantic    str                  0        0.00%
+famrel      int64                0        0.00%
+freetime    int64                0        0.00%
+goout       int64                0        0.00%
+Dalc        int64                0        0.00%
+Walc        int64                0        0.00%
+health      int64                0        0.00%
+absences    int64                0        0.00%
+G1          int64                0        0.00%
+G2          int64                0        0.00%
+G3          int64                0        0.00%
+
+==========================================================================================
+4. REGISTROS DUPLICADOS
+==========================================================================================
+Registros duplicados encontrados: 0 (0.00% da base)
+Critério: linha idêntica a uma anterior em todas as colunas.
+
+==========================================================================================
+5. CARDINALIDADE
+==========================================================================================
+Quantidade de valores únicos por variável (valores ausentes não são contados).
+
+COLUNA          ÚNICOS
+----------------------
+school               2
+sex                  2
+age                  8
+address              2
+famsize              2
+Pstatus              2
+Medu                 5
+Fedu                 5
+Mjob                 5
+Fjob                 5
+reason               4
+guardian             3
+traveltime           4
+studytime            4
+failures             4
+schoolsup            2
+famsup               2
+paid                 2
+activities           2
+nursery              2
+higher               2
+internet             2
+romantic             2
+famrel               5
+freetime             5
+goout                5
+Dalc                 5
+Walc                 5
+health               5
+absences            34
+G1                  17
+G2                  17
+G3                  18
+
+==========================================================================================
+6. VARIÁVEIS NUMÉRICAS
+==========================================================================================
+VARIÁVEL             MÍNIMO         MÁXIMO          MÉDIA        MEDIANA   DESVIO-PADRÃO
+----------------------------------------------------------------------------------------
+age                   15.00          22.00          16.70          17.00            1.28
+Medu                   0.00           4.00           2.75           3.00            1.09
+Fedu                   0.00           4.00           2.52           2.00            1.09
+traveltime             1.00           4.00           1.45           1.00            0.70
+studytime              1.00           4.00           2.04           2.00            0.84
+failures               0.00           3.00           0.33           0.00            0.74
+famrel                 1.00           5.00           3.94           4.00            0.90
+freetime               1.00           5.00           3.24           3.00            1.00
+goout                  1.00           5.00           3.11           3.00            1.11
+Dalc                   1.00           5.00           1.48           1.00            0.89
+Walc                   1.00           5.00           2.29           2.00            1.29
+health                 1.00           5.00           3.55           4.00            1.39
+absences               0.00          75.00           5.71           4.00            8.00
+G1                     3.00          19.00          10.91          11.00            3.32
+G2                     0.00          19.00          10.71          11.00            3.76
+G3                     0.00          20.00          10.42          11.00            4.58
+
+==========================================================================================
+7. VARIÁVEIS NÃO NUMÉRICAS
+==========================================================================================
+Os exemplos mostram até 5 valores diferentes, na ordem em que aparecem na base.
+
+VARIÁVEL      ÚNICOS    EXEMPLOS
+----------------------------------------------------------------------------------
+school             2    GP, MS
+sex                2    F, M
+address            2    U, R
+famsize            2    GT3, LE3
+Pstatus            2    A, T
+Mjob               5    at_home, health, other, services, teacher
+Fjob               5    teacher, other, services, health, at_home
+reason             4    course, other, home, reputation
+guardian           3    mother, father, other
+schoolsup          2    yes, no
+famsup             2    no, yes
+paid               2    no, yes
+activities         2    no, yes
+nursery            2    yes, no
+higher             2    yes, no
+internet           2    no, yes
+romantic           2    no, yes
+
+==========================================================================================
+8. INFORMAÇÕES ADICIONAIS RELEVANTES
+==========================================================================================
+Valores ausentes:
+  - Nenhum registro possui valores ausentes.
+
+Cardinalidade:
+  - Nada a destacar.
+
+Variáveis numéricas:
+  - Assumem no máximo 10 valores diferentes e podem representar códigos, escalas ou
+    categorias, então suas médias pedem cautela: age, Medu, Fedu, traveltime, studytime,
+    failures, famrel, freetime, goout, Dalc, Walc, health.
+  - 2 variáveis têm valores atípicos pela regra do IQR, que não são necessariamente erros.
+    Maiores percentuais: absences (3.80%), G2 (3.29%).
+
+Variáveis não numéricas:
+  - Nada a destacar.
+
+Notas sobre os dados:
+  - Textos como NA, N/A e null são lidos pelo Pandas como ausentes e ficam vazios na Bronze.
+  - A Bronze é gravada com vírgula, qualquer que seja o separador da fonte.
+  - Nenhum registro foi corrigido ou removido: este relatório apenas identifica as
+    características da base. As decisões de preparação cabem à próxima etapa.

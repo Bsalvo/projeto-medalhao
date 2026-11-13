@@ -1,0 +1,4 @@
+A;Pinguins;https://raw.githubusercontent.com/mwaskom/seaborn-data/refs/heads/master/penguins.csv
+B;Desempenho escolar;https://raw.githubusercontent.com/gramener/datasets/main/student-mat.csv
+C;Produtos;https://raw.githubusercontent.com/olist/work-at-olist-data/master/datasets/olist_products_dataset.csv
+D;População brasileira;https://raw.githubusercontent.com/rdsilva/BrazilPopulation/master/brazil-population-2012-2017-spread.csv
